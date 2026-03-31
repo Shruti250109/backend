@@ -5,7 +5,7 @@ import cors from "cors"
 
 import cookieParser from "cookie-parser"
 // Helps you read cookies from requests. It converts cookies into a clean object since express se cookies messy aati hai , cookies are mainly used to remember user
- app.use(cookieParser())
+ 
 const app= express()
 app.use(cors({
     origin:process.env.CORS_ORIGIN,
@@ -25,5 +25,16 @@ app.use (express.urlencoded(
 // extended allows  complex/nested data like object ke andar object jaisa data aur limit is used to limit the incoming data
 app.use (express.static("public"))
 // Anyone can directly access these files using a link (URL) like server running on localhost:5000 the localhasot:5000/image.jnp wagera can be used to access image uske lie code nahi likhna padega
+
+
+// routes
+import userRouter from './routes/user.routes.js'
+// router ki jagah userRouter likh de rahe kyuki router default me xport hua tha
+
+ 
+// routes declaration
+app.use("/api/v1/users", userRouter) 
+
+//  user ne likha /users tohcontrol jaega userRouter pe 
 
 export {app}
