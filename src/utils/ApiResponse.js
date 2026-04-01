@@ -6,6 +6,7 @@ class ApiResponse {
     this.success = statusCode < 400;
   }
 }
+export { ApiResponse}
 // Used to send structured (clean) responses from your backend
 // constructor runs when you create an object
 // If statusCode < 400 → success = true ✅

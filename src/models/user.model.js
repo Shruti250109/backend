@@ -61,7 +61,7 @@ const userSchema= new Schema({
 
 userSchema.pre("save",  async function(next){
     if(!this.isModified("password")) return next();
-    this.password = bcrypt.hash(this.password, 10)
+    this.password =  await bcrypt.hash(this.password, 10)
     next()
 })
 // agar koi banda apna avatar change karke gaya and save kia tab toh wapis se password encrypt kar dega faltu me islie jab password change ho tabhi bcrype use karna 
