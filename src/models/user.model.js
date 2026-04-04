@@ -23,7 +23,7 @@ const userSchema= new Schema({
         trim : true
     },
     // sabko index nahi kia jata hai warna band baj jaegi
-    fullname: {
+    fullName: {
         type : String,
         required : true,
         trim : true,
@@ -59,10 +59,9 @@ const userSchema= new Schema({
 }
 )
 
-userSchema.pre("save",  async function(next){
-    if(!this.isModified("password")) return next();
-    this.password =  await bcrypt.hash(this.password, 10)
-    next()
+userSchema.pre("save", async function() {
+    if (!this.isModified("password")) return;
+    this.password = await bcrypt.hash(this.password, 10);
 })
 // agar koi banda apna avatar change karke gaya and save kia tab toh wapis se password encrypt kar dega faltu me islie jab password change ho tabhi bcrype use karna 
 // condition me likha hai ki modify nahi hua toh aage badho warna bcrypt use kro
@@ -93,7 +92,7 @@ userSchema.methods.generateAccessToken= function(){
 // sign method generates token
 // sign method ke 3 parameters hote hai , pehla hota hai payload ki aap kya kya chahte ho include ho aur baaki dekh lena 
 // and it returns a token islie use return keyword
-useSchema.methods.generateRefreshToken= function(){
+userSchema.methods.generateRefreshToken= function(){
     return jwt.sign(
         {
           _id: this._id

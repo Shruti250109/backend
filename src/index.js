@@ -7,7 +7,7 @@ import connectDB from "./db/index.js"
 // Imports your custom function that connects to database.
 import { app } from "./app.js";  
 
-
+console.log("CLOUD NAME:", process.env.CLOUDINARY_CLOUD_NAME);
 
 connectDB()
 .then(()=>{

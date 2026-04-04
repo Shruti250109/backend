@@ -19,5 +19,6 @@ const storage = multer.diskStorage({
  export const upload = multer({ storage,
 
  })
+ 
 // you are creating an upload middleware here
 //  dont forget to export it

@@ -3,7 +3,7 @@ import express from "express"
 import cors from "cors"
 // Allows your backend to accept requests from another origin (like frontend).like front port 3000 pr run kar raha aur backend 5000 pe then without cors it gets blocked
 
-import cookieParser from "cookie-parser"
+import cookieParser from "cookie-parser";
 // Helps you read cookies from requests. It converts cookies into a clean object since express se cookies messy aati hai , cookies are mainly used to remember user
  
 const app= express()
@@ -34,6 +34,7 @@ import userRouter from './routes/user.routes.js'
  
 // routes declaration
 app.use("/api/v1/users", userRouter) 
+
 
 //  user ne likha /users tohcontrol jaega userRouter pe 
 
